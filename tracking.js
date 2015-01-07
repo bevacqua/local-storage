@@ -17,7 +17,7 @@ function change (e) {
   if (!e) {
     e = global.event;
   }
-  var all = handlers[e.key];
+  var all = listeners[e.key];
   if (all) {
     all.forEach(fire);
   }
