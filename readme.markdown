@@ -13,7 +13,7 @@ npm install local-storage --save
 Using `bower`
 
 ```shell
-bower install local-storage --save
+bower install localstorage --save
 ```
 
 # API
