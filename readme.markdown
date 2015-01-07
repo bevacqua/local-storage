@@ -7,7 +7,13 @@
 Using `npm`
 
 ```shell
-npm install local-storage
+npm install local-storage --save
+```
+
+Using `bower`
+
+```shell
+bower install local-storage --save
 ```
 
 # API

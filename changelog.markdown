@@ -1,5 +1,7 @@
 # 1.3.0 Pony Up
 
+- Added to Bower registry
+
 # 1.2.0 Pigtails
 
 - Fixed a bug which prevented the change tracking API from parsing the JSON values in localStorage
