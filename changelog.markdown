@@ -1,4 +1,6 @@
-# 1.2.0 Meltdown
+# 1.3.0 Pony Up
+
+# 1.2.0 Pigtails
 
 - Fixed a bug which prevented the change tracking API from parsing the JSON values in localStorage
 
