@@ -81,7 +81,7 @@ var ls = require('local-storage');
 ls.set('foo', 'bar');
 // <- true
 
-ls.remove('foo', 'bar');
+ls.remove('foo');
 // <- true
 ```
 
