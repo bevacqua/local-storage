@@ -1,6 +1,6 @@
-# 1.3.0 Pony Up
+# 1.3.1 Pony Up
 
-- Added to Bower registry
+- Added to Bower registry as `localstorage`
 
 # 1.2.0 Pigtails
 
