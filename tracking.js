@@ -23,7 +23,7 @@ function change (e) {
   }
 
   function fire (listener) {
-    listener(e.newValue, e.oldValue, e.url || e.uri);
+    listener(JSON.parse(e.newValue), JSON.parse(e.oldValue), e.url || e.uri);
   }
 }
 

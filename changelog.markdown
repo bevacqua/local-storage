@@ -1,6 +1,10 @@
+# 1.2.0 Meltdown
+
+- Fixed a bug which prevented the change tracking API from parsing the JSON values in localStorage
+
 # 1.1.1 Meltdown
 
-- Fix a bug in change tracking API where exceptions would be thrown
+- Fixed a bug in change tracking API where exceptions would be thrown
 
 # 1.1.0 Band of Brothers
 
