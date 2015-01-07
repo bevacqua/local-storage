@@ -4,16 +4,10 @@
 
 # Install
 
-Using `npm`:
+Using `npm`
 
 ```shell
 npm install local-storage
-```
-
-Using `bower`:
-
-```shell
-bower install local-storage
 ```
 
 # API
