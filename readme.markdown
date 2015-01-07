@@ -18,7 +18,7 @@ For that reason, consider that `local-storage` values _might evaporate_ across p
 
 ## `ls(key, value?)`
 
-If a `value` argument is provided, persists `value` using the provided `key`. When `value` isn't provided, returns the current value for `key`.
+If a `value` argument is provided, acts as `ls.set`. When `value` isn't provided, acts as `ls.get`.
 
 ##### Example
 
@@ -54,6 +54,8 @@ ls.get('foo');
 ## `ls.set(key, value)`
 
 Persists `value` under `key` in local storage. Equivalent to `ls(key, value)`. Internally converts the `value` to JSON.
+
+Returns whether an error was thrown by the browser when trying to persist the value. Failure typically means a `QuotaExceededError` was thrown.
 
 ##### Example
 

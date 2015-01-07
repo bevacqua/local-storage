@@ -16,7 +16,12 @@ function get (key) {
 }
 
 function set (key, value) {
-  return ls.setItem(key, JSON.stringify(value));
+  try {
+    ls.setItem(key, JSON.stringify(value));
+    return true;
+  } catch (e) {
+    return false;
+  }
 }
 
 function remove (key) {

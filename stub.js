@@ -8,6 +8,7 @@ function getItem (key) {
 
 function setItem (key, value) {
   ms[key] = value;
+  return true;
 }
 
 function removeItem (key) {
