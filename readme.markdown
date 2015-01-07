@@ -43,7 +43,7 @@ ls('foo');
 
 ## `ls.get(key)`
 
-Returns value under `key` in local storage. Equivalent to `ls(key)`.
+Returns value under `key` in local storage. Equivalent to `ls(key)`. Internally parses the value from JSON before returning it.
 
 ##### Example
 
@@ -59,7 +59,7 @@ ls.get('foo');
 
 ## `ls.set(key, value)`
 
-Persists `value` under `key` in local storage. Equivalent to `ls(key, value)`.
+Persists `value` under `key` in local storage. Equivalent to `ls(key, value)`. Internally converts the `value` to JSON.
 
 ##### Example
 
@@ -93,8 +93,8 @@ ls.remove('foo', 'bar');
 
 Listen for changes persisted against `key` on other tabs. Triggers `fn` when a change occurs, passing the following arguments.
 
-- `value`: the current value for `key` in local storage
-- `old`: the old value for `key` in local storage
+- `value`: the current value for `key` in local storage, parsed from the persisted JSON
+- `old`: the old value for `key` in local storage, parsed from the persisted JSON
 - `url`: the url for the tab where the modification came from
 
 ##### Example
