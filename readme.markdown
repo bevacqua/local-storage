@@ -29,7 +29,7 @@ ls('foo');
 // <- null
 
 ls('foo', 'bar');
-// <- undefined
+// <- true
 
 ls('foo');
 // <- 'bar'
@@ -45,7 +45,7 @@ Returns value under `key` in local storage. Equivalent to `ls(key)`. Internally 
 var ls = require('local-storage');
 
 ls('foo', 'bar');
-// <- undefined
+// <- true
 
 ls.get('foo');
 // <- 'bar'
@@ -63,7 +63,7 @@ Returns whether an error was thrown by the browser when trying to persist the va
 var ls = require('local-storage');
 
 ls.set('foo', 'bar');
-// <- undefined
+// <- true
 
 ls.get('foo');
 // <- 'bar'
@@ -79,7 +79,7 @@ Removes `key` from local storage. Returns `true` if the property was successfull
 var ls = require('local-storage');
 
 ls.set('foo', 'bar');
-// <- undefined
+// <- true
 
 ls.remove('foo', 'bar');
 // <- true
