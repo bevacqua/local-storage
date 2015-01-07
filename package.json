@@ -1,0 +1,21 @@
+{
+  "name": "local-storage",
+  "version": "1.0.0",
+  "description": "A simplified localStorage API that just works",
+  "main": "local-storage.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bevacqua/local-storage.git"
+  },
+  "keywords": [
+    "localstorage",
+    "local-storage",
+    "persistance"
+  ],
+  "author": "Nicolas Bevacqua <nicolasbevacqua@gmail.com> (http://bevacqua.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bevacqua/local-storage/issues"
+  },
+  "homepage": "https://github.com/bevacqua/local-storage"
+}
