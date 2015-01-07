@@ -1,7 +1,7 @@
 {
   "name": "local-storage",
   "main": "dist/local-storage.js",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "homepage": "https://github.com/bevacqua/local-storage",
   "authors": [
     "Nicolas Bevacqua <nicolasbevacqua@gmail.com>"
