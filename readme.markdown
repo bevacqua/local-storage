@@ -118,6 +118,8 @@ function storage (value) {
 
 Removes a listener previously attached with `ls.on(key, fn)`.
 
+##### Example
+
 ```js
 var ls = require('local-storage');
 
