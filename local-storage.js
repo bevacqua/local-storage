@@ -28,9 +28,14 @@ function remove (key) {
   return ls.removeItem(key);
 }
 
+function clear () {
+  return ls.clear();
+}
+
 accessor.set = set;
 accessor.get = get;
 accessor.remove = remove;
+accessor.clear = clear;
 accessor.on = tracking.on;
 accessor.off = tracking.off;
 

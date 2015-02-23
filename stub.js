@@ -19,8 +19,14 @@ function removeItem (key) {
   return false;
 }
 
+function clear () {
+  ms = {};
+  return true;
+}
+
 module.exports = {
   getItem: getItem,
   setItem: setItem,
-  removeItem: removeItem
+  removeItem: removeItem,
+  clear: clear
 };

@@ -30,9 +30,14 @@ function remove (key) {
   return ls.removeItem(key);
 }
 
+function clear () {
+  return ls.clear();
+}
+
 accessor.set = set;
 accessor.get = get;
 accessor.remove = remove;
+accessor.clear = clear;
 accessor.on = tracking.on;
 accessor.off = tracking.off;
 
@@ -61,10 +66,16 @@ function removeItem (key) {
   return false;
 }
 
+function clear () {
+  ms = {};
+  return true;
+}
+
 module.exports = {
   getItem: getItem,
   setItem: setItem,
-  removeItem: removeItem
+  removeItem: removeItem,
+  clear: clear
 };
 
 },{}],3:[function(require,module,exports){
