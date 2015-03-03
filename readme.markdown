@@ -91,6 +91,20 @@ ls.remove('foo');
 // <- true
 ```
 
+## `ls.clear()`
+
+Clears local storage.
+
+##### Example
+
+```js
+var ls = require('local-storage');
+
+ls.set('foo', 'bar');
+ls.set('baz', 'tar');
+ls.clear();
+```
+
 ## `ls.on(key, fn)`
 
 Listen for changes persisted against `key` on other tabs. Triggers `fn` when a change occurs, passing the following arguments.

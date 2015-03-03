@@ -1,3 +1,7 @@
+# 1.4.0 Clear Skies
+
+- Added `.clear` method
+
 # 1.3.1 Pony Up
 
 - Added to Bower registry as `localstorage`
