@@ -1,3 +1,7 @@
+# 1.4.1
+
+Fix a bug where `local-storage` would throw in IE when using the `file://` protocol
+
 # 1.4.0 Clear Skies
 
 - Added `.clear` method
