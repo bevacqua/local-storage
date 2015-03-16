@@ -4,7 +4,7 @@
 
 var stub = require('./stub');
 var tracking = require('./tracking');
-var ls = 'localStorage' in global ? global.localStorage : stub;
+var ls = 'localStorage' in global && global.localStorage ? global.localStorage : stub;
 
 function accessor (key, value) {
   if (arguments.length === 1) {
