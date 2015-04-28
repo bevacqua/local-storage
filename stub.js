@@ -3,7 +3,7 @@
 var ms = {};
 
 function getItem (key) {
-  return 'key' in ms ? ms[key] : null;
+  return key in ms ? ms[key] : null;
 }
 
 function setItem (key, value) {
