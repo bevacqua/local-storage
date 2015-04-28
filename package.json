@@ -1,6 +1,6 @@
 {
   "name": "local-storage",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "A simplified localStorage API that just works",
   "main": "local-storage.js",
   "repository": {
