@@ -1,4 +1,8 @@
-# 1.4.1
+# 1.4.2 Keyboard Smasher
+
+Fixed a bug where `local-storage` wouldn't retrieve any values unless they had a `'key'` key
+
+# 1.4.1 Bear Hunt
 
 Fix a bug where `local-storage` would throw in IE when using the `file://` protocol
 
