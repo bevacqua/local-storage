@@ -75,6 +75,30 @@ ls.get('foo');
 // <- 'bar'
 ```
 
+## `ls.isSet(key)`
+
+Checks if `key` is set in local storage. Returns `true` if it is set / `false` otherwise.
+
+This is useful in cases where the value of `key` is a boolean and you need to distinguish `false` from `null`.
+
+##### Example
+
+```js
+var ls = require('local-storage');
+
+ls.set('foo', false);
+// <- true
+
+ls.isSet('foo');
+// <- true
+
+ls.remove('foo');
+// <- true
+
+ls.isSet('foo');
+// <- false
+```
+
 ## `ls.remove(key)`
 
 Removes `key` from local storage. Returns `true` if the property was successfully deleted, and `false` otherwise.
