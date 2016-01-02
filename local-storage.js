@@ -24,6 +24,10 @@ function set (key, value) {
   }
 }
 
+function isSet (key) {
+  return !!ls.getItem(key);
+}
+
 function remove (key) {
   return ls.removeItem(key);
 }
@@ -33,6 +37,7 @@ function clear () {
 }
 
 accessor.set = set;
+accessor.isSet = isSet;
 accessor.get = get;
 accessor.remove = remove;
 accessor.clear = clear;
