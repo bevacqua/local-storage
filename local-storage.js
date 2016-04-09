@@ -25,7 +25,8 @@ function set (key, value) {
 }
 
 function remove (key) {
-  return ls.removeItem(key);
+  ls.removeItem(key);
+  return (ls.getItem(key) === null) ? true : false;
 }
 
 function clear () {
