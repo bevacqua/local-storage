@@ -61,7 +61,7 @@ ls.get('foo');
 
 Persists `value` under `key` in local storage. Equivalent to `ls(key, value)`. Internally converts the `value` to JSON.
 
-Returns whether an error was thrown by the browser when trying to persist the value. Failure typically means a `QuotaExceededError` was thrown.
+Returns whether the action succeeded; otherwise, an error was thrown by the browser when trying to persist the value. Failure typically means a `QuotaExceededError` was thrown.
 
 ##### Example
 
