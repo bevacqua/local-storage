@@ -32,10 +32,28 @@ function clear () {
   return ls.clear();
 }
 
+/**
+ * See: https://stackoverflow.com/a/17748203/6279901
+ *
+ * @returns object
+ */
+function all() {
+  var archive = {}, // Notice change here
+      keys = Object.keys(ls),
+      i = keys.length;
+
+  while(i--){
+      archive[keys[i]] = ls.getItem(keys[i]);
+  }
+
+  return archive;
+}
+
 accessor.set = set;
 accessor.get = get;
 accessor.remove = remove;
 accessor.clear = clear;
+accessor.all = all;
 accessor.on = tracking.on;
 accessor.off = tracking.off;
 
