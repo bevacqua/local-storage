@@ -6,10 +6,10 @@ declare module "local-storage" {
 
     export function on<T>(key: string, cb: (value: T) => void): void;
     export function on<T>(key: string, cb: (value: T, old: T) => void): void;
-    export function on<T>(key: string, cb: (value: T, old: T, url: T) => void): void;
+    export function on<T>(key: string, cb: (value: T, old: T, url: string) => void): void;
 
     export function off<T>(key: string, cb: (value: T) => void): void;
     export function off<T>(key: string, cb: (value: T, old: T) => void): void;
-    export function off<T>(key: string, cb: (value: T, old: T, url: T) => void): void;
+    export function off<T>(key: string, cb: (value: T, old: T, url: string) => void): void;
     export default function <T>(key: string, value?: T): void;
 }
