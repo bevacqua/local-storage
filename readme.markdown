@@ -144,8 +144,9 @@ function storage (value) {
   console.log('some other tab changed "foo" to ' + value);
 }
 ```
+## Typescript
 
-##### Typescript Example
+##### Example
 
 ```ts
 import ls, {get,set} from "local-storage";
@@ -160,7 +161,7 @@ interface IFoo{
 ls<IFoo>('foo');
 ```
 
-##### Typescript Example
+##### Example
 
 ```ts
 import * as ls from "local-storage";
