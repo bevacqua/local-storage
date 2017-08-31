@@ -145,6 +145,31 @@ function storage (value) {
 }
 ```
 
+##### Typescript Example
+
+```ts
+import ls, {get,set} from "local-storage";
+
+set<number>('foo',5);
+get<number>('foo');
+
+interface IFoo{
+  bar: string;
+}
+
+ls<IFoo>('foo');
+```
+
+##### Typescript Example
+
+```ts
+import * as ls from "local-storage";
+
+ls.set<number>('foo',5);
+ls.get<number>('foo');
+
+```
+
 # License
 
 MIT
