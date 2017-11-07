@@ -1,4 +1,4 @@
-# local-storage
+# local-storage-adapter
 
 > A simplified `localStorage` API that just works
 

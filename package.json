@@ -2,21 +2,22 @@
   "name": "local-storage-adapter",
   "version": "2.0.0",
   "description": "A simplified localStorage API that just works",
-  "main": "local-storage.js",
+  "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/suprMax/local-storage.git"
+    "url": "https://github.com/suprMax/local-storage-adapter.git"
   },
   "keywords": [
     "localstorage",
     "local-storage",
-    "persistance"
+    "persistance",
+    "local storage adapter"
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/suprMax/local-storage/issues"
+    "url": "https://github.com/suprMax/local-storage-adapter/issues"
   },
-  "homepage": "https://github.com/suprMax/local-storage",
+  "homepage": "https://github.com/suprMax/local-storage-adapter",
   "scripts": {
     "lint": "eslint ./"
   },
