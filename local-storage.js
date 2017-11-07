@@ -1,7 +1,7 @@
 var ls = require('./stub');
 var tracking = require('./tracking');
 
-var uid = String(new Date());
+var uid = String(Date.now());
 var storage;
 var isWorking;
 
@@ -43,9 +43,7 @@ clear = function() {
 };
 
 accessor = function(key, value) {
-  if (arguments.length === 1) {
-    return get(key);
-  }
+  if (arguments.length === 1) return get(key);
   return set(key, value);
 };
 

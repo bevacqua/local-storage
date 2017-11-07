@@ -2,26 +2,11 @@ var listeners = {};
 var listening = false;
 
 var change = function(e) {
-  var all;
-
   var fire = function(listener) {
-    listener(JSON.parse(e.newValue), JSON.parse(e.oldValue), e.url || e.uri);
+    listener(JSON.parse(e.newValue), JSON.parse(e.oldValue), e.url);
   };
-
-  if (!e) e = global.event;
-
-  all = listeners[e.key];
+  var all = listeners[e.key];
   if (all) all.forEach(fire);
-};
-
-var listen = function() {
-  if (global.addEventListener) {
-    global.addEventListener('storage', change, false);
-  } else if (global.attachEvent) {
-    global.attachEvent('onstorage', change);
-  } else {
-    global.onstorage = change;
-  }
 };
 
 var on = function(key, fn) {
@@ -30,7 +15,7 @@ var on = function(key, fn) {
   } else {
     listeners[key] = [fn];
   }
-  if (listening === false) listen();
+  if (listening === false) global.addEventListener('storage', change, false);
 };
 
 var off = function(key, fn) {
