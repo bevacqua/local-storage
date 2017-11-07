@@ -4,7 +4,15 @@ var ls = require('./stub');
 var tracking = require('./tracking');
 
 try {
-   if ('localStorage' in global && global.localStorage) ls = global.localStorage;
+  var uid = String(new Date());
+  if ('localStorage' in global && global.localStorage) {
+    var storage = global.localStorage;
+    var isWorking;
+    storage.setItem(uid, uid);
+    isWorking = storage.getItem(uid) === uid;
+    storage.removeItem(uid);
+    if (storage && isWorking) ls = global.localStorage;
+  }
 } catch (e) {}
 
 function accessor (key, value) {

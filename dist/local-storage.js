@@ -2,9 +2,20 @@
 (function (global){
 'use strict';
 
-var stub = require('./stub');
+var ls = require('./stub');
 var tracking = require('./tracking');
-var ls = 'localStorage' in global && global.localStorage ? global.localStorage : stub;
+
+try {
+  var uid = String(new Date());
+  if ('localStorage' in global && global.localStorage) {
+    var storage = global.localStorage;
+    var isWorking;
+    storage.setItem(uid, uid);
+    isWorking = storage.getItem(uid) === uid;
+    storage.removeItem(uid);
+    if (storage && isWorking) ls = global.localStorage;
+  }
+} catch (e) {}
 
 function accessor (key, value) {
   if (arguments.length === 1) {
@@ -50,7 +61,7 @@ module.exports = accessor;
 var ms = {};
 
 function getItem (key) {
-  return 'key' in ms ? ms[key] : null;
+  return key in ms ? ms[key] : null;
 }
 
 function setItem (key, value) {
