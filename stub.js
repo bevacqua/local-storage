@@ -1,28 +1,24 @@
-'use strict';
-
 var ms = {};
 
-function getItem (key) {
+var getItem = function(key) {
   return key in ms ? ms[key] : null;
-}
+};
 
-function setItem (key, value) {
+var setItem = function(key, value) {
   ms[key] = value;
   return true;
-}
+};
 
-function removeItem (key) {
+var removeItem = function(key) {
   var found = key in ms;
-  if (found) {
-    return delete ms[key];
-  }
+  if (found) return delete ms[key];
   return false;
-}
+};
 
-function clear () {
+var clear = function() {
   ms = {};
   return true;
-}
+};
 
 module.exports = {
   getItem: getItem,

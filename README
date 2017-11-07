@@ -2,6 +2,8 @@
 
 > A simplified `localStorage` API that just works
 
+Forked from https://github.com/bevacqua by Nicolás Bevacqua which is no longer maintained.
+
 # Install
 
 Using `npm`

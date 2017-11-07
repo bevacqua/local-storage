@@ -1,3 +1,7 @@
+# 1.4.2
+
+Fix a bug where old Chrome and IE11 would crash in "secure" mode.
+
 # 1.4.1
 
 Fix a bug where `local-storage` would throw in IE when using the `file://` protocol

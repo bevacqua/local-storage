@@ -1,9 +1,20 @@
-'use strict';
-
 var listeners = {};
 var listening = false;
 
-function listen () {
+var change = function(e) {
+  var all;
+
+  var fire = function(listener) {
+    listener(JSON.parse(e.newValue), JSON.parse(e.oldValue), e.url || e.uri);
+  };
+
+  if (!e) e = global.event;
+
+  all = listeners[e.key];
+  if (all) all.forEach(fire);
+};
+
+var listen = function() {
   if (global.addEventListener) {
     global.addEventListener('storage', change, false);
   } else if (global.attachEvent) {
@@ -11,41 +22,26 @@ function listen () {
   } else {
     global.onstorage = change;
   }
-}
+};
 
-function change (e) {
-  if (!e) {
-    e = global.event;
-  }
-  var all = listeners[e.key];
-  if (all) {
-    all.forEach(fire);
-  }
-
-  function fire (listener) {
-    listener(JSON.parse(e.newValue), JSON.parse(e.oldValue), e.url || e.uri);
-  }
-}
-
-function on (key, fn) {
+var on = function(key, fn) {
   if (listeners[key]) {
     listeners[key].push(fn);
   } else {
     listeners[key] = [fn];
   }
-  if (listening === false) {
-    listen();
-  }
-}
+  if (listening === false) listen();
+};
 
-function off (key, fn) {
+var off = function(key, fn) {
   var ns = listeners[key];
+
   if (ns.length > 1) {
     ns.splice(ns.indexOf(fn), 1);
   } else {
     listeners[key] = [];
   }
-}
+};
 
 module.exports = {
   on: on,

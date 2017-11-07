@@ -1,27 +1,28 @@
 {
   "name": "local-storage",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "A simplified localStorage API that just works",
   "main": "local-storage.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bevacqua/local-storage.git"
+    "url": "https://github.com/suprMax/local-storage.git"
   },
   "keywords": [
     "localstorage",
     "local-storage",
     "persistance"
   ],
-  "author": "Nicolas Bevacqua <nicolasbevacqua@gmail.com> (http://bevacqua.io/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bevacqua/local-storage/issues"
+    "url": "https://github.com/suprMax/local-storage/issues"
   },
-  "homepage": "https://github.com/bevacqua/local-storage",
+  "homepage": "https://github.com/suprMax/local-storage",
   "scripts": {
-    "build": "browserify local-storage.js -o dist/local-storage.js"
+    "lint": "eslint ./"
   },
   "devDependencies": {
-    "browserify": "^14.5.0"
+    "eslint": "3.17.1",
+    "eslint-config-airbnb-base": "11.1.1",
+    "eslint-plugin-import": "2.2.0"
   }
 }
