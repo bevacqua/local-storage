@@ -1,3 +1,8 @@
+# 2.0.0
+
+Fix a bug where old Chrome and IE11 would crash in "secure" mode.
+Don't pollute global scope in NodeJS anymore. Drop support for IE < 10
+
 # 1.4.1
 
 Fix a bug where `local-storage` would throw in IE when using the `file://` protocol

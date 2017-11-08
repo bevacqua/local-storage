@@ -1,26 +1,22 @@
-# local-storage
+# local-storage-adapter
 
 > A simplified `localStorage` API that just works
+
+Forked from https://github.com/bevacqua by Nicolás Bevacqua which is no longer maintained.
 
 # Install
 
 Using `npm`
 
 ```shell
-npm install local-storage --save
-```
-
-Using `bower`
-
-```shell
-bower install localstorage --save
+npm install local-storage-adapter --save
 ```
 
 # API
 
 The API is a simplified way to interact with all things `localStorage`. Note that when `localStorage` is unsupported in the current browser, a fallback to an in-memory store is used transparently.
 
-For that reason, consider that `local-storage` values _might evaporate_ across page views.
+For that reason, consider that `local-storage-adapter` values _might evaporate_ across page views.
 
 ## `ls(key, value?)`
 
@@ -29,7 +25,7 @@ If a `value` argument is provided, acts as `ls.set`. When `value` isn't provided
 ##### Example
 
 ```js
-var ls = require('local-storage');
+var ls = require('local-storage-adapter');
 
 ls('foo');
 // <- null
@@ -48,7 +44,7 @@ Returns value under `key` in local storage. Equivalent to `ls(key)`. Internally 
 ##### Example
 
 ```js
-var ls = require('local-storage');
+var ls = require('local-storage-adapter');
 
 ls('foo', 'bar');
 // <- true
@@ -66,7 +62,7 @@ Returns whether an error was thrown by the browser when trying to persist the va
 ##### Example
 
 ```js
-var ls = require('local-storage');
+var ls = require('local-storage-adapter');
 
 ls.set('foo', 'bar');
 // <- true
@@ -82,7 +78,7 @@ Removes `key` from local storage. Returns `true` if the property was successfull
 ##### Example
 
 ```js
-var ls = require('local-storage');
+var ls = require('local-storage-adapter');
 
 ls.set('foo', 'bar');
 // <- true
@@ -98,7 +94,7 @@ Clears local storage.
 ##### Example
 
 ```js
-var ls = require('local-storage');
+var ls = require('local-storage-adapter');
 
 ls.set('foo', 'bar');
 ls.set('baz', 'tar');
@@ -118,7 +114,7 @@ Listen for changes persisted against `key` on other tabs. Triggers `fn` when a c
 Open a page with the following snippet in multiple tabs. The `storage` event will trigger on all tabs except for the one that persisted the change.
 
 ```js
-var ls = require('local-storage');
+var ls = require('local-storage-adapter');
 
 ls.on('foo', storage);
 ls.set('foo', 'bar');
@@ -135,7 +131,7 @@ Removes a listener previously attached with `ls.on(key, fn)`.
 ##### Example
 
 ```js
-var ls = require('local-storage');
+var ls = require('local-storage-adapter');
 
 ls.on('foo', storage);
 ls.off('foo', storage);
