@@ -1,3 +1,10 @@
+# 2.0.0
+
+- Added relaxed JSON parsing that returns `null` when `undefined`, raw input for non-JSON data
+- Added `.backend` method
+- Added TypeScript typings
+- Improved documentation
+
 # 1.4.1
 
 Fix a bug where `local-storage` would throw in IE when using the `file://` protocol

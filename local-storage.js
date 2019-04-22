@@ -1,6 +1,7 @@
 'use strict';
 
 var stub = require('./stub');
+var parse = require('./parse');
 var tracking = require('./tracking');
 var ls = 'localStorage' in global && global.localStorage ? global.localStorage : stub;
 
@@ -12,7 +13,9 @@ function accessor (key, value) {
 }
 
 function get (key) {
-  return JSON.parse(ls.getItem(key));
+  const raw = ls.getItem(key);
+  const parsed = parse(raw);
+  return parsed;
 }
 
 function set (key, value) {

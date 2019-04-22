@@ -1,5 +1,6 @@
 'use strict';
 
+var parse = require('./parse');
 var listeners = {};
 var listening = false;
 
@@ -23,7 +24,7 @@ function change (e) {
   }
 
   function fire (listener) {
-    listener(JSON.parse(e.newValue), JSON.parse(e.oldValue), e.url || e.uri);
+    listener(parse(e.newValue), parse(e.oldValue), e.url || e.uri);
   }
 }
 
