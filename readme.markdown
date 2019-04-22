@@ -105,6 +105,21 @@ ls.set('baz', 'tar');
 ls.clear();
 ```
 
+## `ls.backend(store?)`
+
+If a `store` argument is provided, it sets the backend storage engine. Otherwise it returns the current backend.
+
+##### Example
+
+```js
+var ls = require('local-storage');
+
+ls.backend(sessionStorage);
+ls.set('baz', 'tar');
+/* close the tab, then reopen */
+ls.get('baz');
+```
+
 ## `ls.on(key, fn)`
 
 Listen for changes persisted against `key` on other tabs. Triggers `fn` when a change occurs, passing the following arguments.
