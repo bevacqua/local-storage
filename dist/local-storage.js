@@ -3,6 +3,7 @@
 'use strict';
 
 var stub = require('./stub');
+var parse = require('./parse');
 var tracking = require('./tracking');
 var ls = 'localStorage' in global && global.localStorage ? global.localStorage : stub;
 
@@ -14,7 +15,9 @@ function accessor (key, value) {
 }
 
 function get (key) {
-  return JSON.parse(ls.getItem(key));
+  const raw = ls.getItem(key);
+  const parsed = parse(raw);
+  return parsed;
 }
 
 function set (key, value) {
@@ -34,23 +37,53 @@ function clear () {
   return ls.clear();
 }
 
+function backend (store) {
+  store && (ls = store);
+
+  return ls;
+}
+
 accessor.set = set;
 accessor.get = get;
 accessor.remove = remove;
 accessor.clear = clear;
+accessor.backend = backend;
 accessor.on = tracking.on;
 accessor.off = tracking.off;
 
 module.exports = accessor;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./stub":2,"./tracking":3}],2:[function(require,module,exports){
+},{"./parse":2,"./stub":3,"./tracking":4}],2:[function(require,module,exports){
+'use strict';
+
+function parse (rawValue) {
+  const parsed = parseValue(rawValue);
+
+  if (parsed === undefined) {
+    return null;
+  }
+
+  return parsed;
+}
+
+function parseValue (rawValue) {
+  try {
+    return JSON.parse(rawValue);
+  } catch (err) {
+    return rawValue;
+  }
+}
+
+module.exports = parse;
+
+},{}],3:[function(require,module,exports){
 'use strict';
 
 var ms = {};
 
 function getItem (key) {
-  return 'key' in ms ? ms[key] : null;
+  return key in ms ? ms[key] : null;
 }
 
 function setItem (key, value) {
@@ -78,10 +111,11 @@ module.exports = {
   clear: clear
 };
 
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 (function (global){
 'use strict';
 
+var parse = require('./parse');
 var listeners = {};
 var listening = false;
 
@@ -105,7 +139,7 @@ function change (e) {
   }
 
   function fire (listener) {
-    listener(JSON.parse(e.newValue), JSON.parse(e.oldValue), e.url || e.uri);
+    listener(parse(e.newValue), parse(e.oldValue), e.url || e.uri);
   }
 }
 
@@ -135,4 +169,4 @@ module.exports = {
 };
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}]},{},[1]);
+},{"./parse":2}]},{},[1]);
