@@ -3,6 +3,7 @@ declare module "local-storage" {
     export function get<T>(key: string): T;
     export function remove(key: string): void;
     export function clear(): void;
+    export function backend(store: Storage): void;
 
     export function on<T>(key: string, cb: (value: T) => void): void;
     export function on<T>(key: string, cb: (value: T, old: T) => void): void;
