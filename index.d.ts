@@ -11,5 +11,9 @@ declare module "local-storage" {
     export function off<T>(key: string, cb: (value: T) => void): void;
     export function off<T>(key: string, cb: (value: T, old: T) => void): void;
     export function off<T>(key: string, cb: (value: T, old: T, url: string) => void): void;
-    export default function <T>(key: string, value?: T): void;
+
+    export function backend<T>(backend: T): T;
+    export function backend<T>(): T;
+
+    export default function<T>(key: string, value?: T): void;
 }
