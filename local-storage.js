@@ -17,6 +17,11 @@ function get (key) {
 
 function set (key, value) {
   try {
+    // Avoid accidently setting null and undefined values as strings "null" and "undefined".
+    if(value === null || value === undefined){
+      remove(key);
+      return true;
+    }
     ls.setItem(key, JSON.stringify(value));
     return true;
   } catch (e) {
