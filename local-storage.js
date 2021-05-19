@@ -5,7 +5,9 @@ var tracking = require('./tracking');
 var ls = stub;
 
 try{
-  ls =  'localStorage' in global && global.localStorage;
+  if('localStorage' in window && global.localStorage && window.localStorage){
+    ls =  global.localStorage ;
+  }
 }catch (e){
   console.error(`Access denied! Failed to read the 'localStorage' property from 'Window': Access is denied for this document`)
 }
