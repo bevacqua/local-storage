@@ -5,7 +5,7 @@ var tracking = require('./tracking');
 var ls = stub;
 
 try{
-  if('localStorage' in window && global.localStorage && window.localStorage){
+ if('localStorage' in global && global.localStorage){
     ls =  global.localStorage ;
   }
 }catch (e){
