@@ -2,7 +2,13 @@
 
 var stub = require('./stub');
 var tracking = require('./tracking');
-var ls = 'localStorage' in global && global.localStorage ? global.localStorage : stub;
+var ls = stub;
+
+try{
+  ls =  'localStorage' in global && global.localStorage;
+}catch (e){
+  console.error(`Access denied! Failed to read the 'localStorage' property from 'Window': Access is denied for this document`)
+}
 
 function accessor (key, value) {
   if (arguments.length === 1) {
@@ -16,12 +22,7 @@ function get (key) {
 }
 
 function set (key, value) {
-  try {
     ls.setItem(key, JSON.stringify(value));
-    return true;
-  } catch (e) {
-    return false;
-  }
 }
 
 function remove (key) {
