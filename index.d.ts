@@ -1,5 +1,6 @@
 declare module "local-storage" {
-    export function set<T>(key: string, value: T): boolean;
+    export function enable(): boolean;
+    export function set<T>(key: string, value: T): void;
     export function get<T>(key: string): T;
     export function remove(key: string): void;
     export function clear(): void;
