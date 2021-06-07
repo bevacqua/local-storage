@@ -1,16 +1,22 @@
 'use strict';
 
 var stub = require('./stub');
+var parse = require('./parse');
 var tracking = require('./tracking');
 var ls = stub;
+var isEnabled = false;
 
 try{
- if('localStorage' in global && global.localStorage){
+  localStorage.setItem('t.e.s.t', 'test');
+  localStorage.removeItem('t.e.s.t');
+  if('localStorage' in global && global.localStorage){
     ls =  global.localStorage ;
+    isEnabled = true;
   }
 }catch (e){
-  console.error(`Access denied! Failed to read the 'localStorage' property from 'Window': Access is denied for this document`)
+  console.log(`Access denied! Failed to read the 'localStorage' property from 'Window': Access is denied for this document`)
 }
+
 
 function accessor (key, value) {
   if (arguments.length === 1) {
@@ -19,8 +25,11 @@ function accessor (key, value) {
   return set(key, value);
 }
 
+
 function get (key) {
-  return JSON.parse(ls.getItem(key));
+  const raw = ls.getItem(key);
+  const parsed = parse(raw);
+  return parsed;
 }
 
 function set (key, value) {
@@ -37,10 +46,10 @@ function clear () {
 
 function backend (store) {
   store && (ls = store);
-
   return ls;
 }
 
+accessor.enabled = isEnabled;
 accessor.set = set;
 accessor.get = get;
 accessor.remove = remove;
