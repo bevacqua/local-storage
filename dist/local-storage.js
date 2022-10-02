@@ -22,6 +22,7 @@ function set (key, value) {
     ls.setItem(key, JSON.stringify(value));
     return true;
   } catch (e) {
+    console.error(e);
     return false;
   }
 }
