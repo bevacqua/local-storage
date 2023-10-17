@@ -4,7 +4,18 @@
 
 var stub = require('./stub');
 var tracking = require('./tracking');
-var ls = 'localStorage' in global && global.localStorage ? global.localStorage : stub;
+
+var localStorageAvailable = function () {
+  try {
+    global.localStorage.setItem('_test-local-storage-availability_', '1');
+    global.localStorage.removeItem('_test-local-storage-availability_');
+    return true;
+  } catch (e) {
+    return false;
+  }
+};
+
+var ls = localStorageAvailable() ? global.localStorage : stub;
 
 function accessor (key, value) {
   if (arguments.length === 1) {
@@ -50,7 +61,7 @@ module.exports = accessor;
 var ms = {};
 
 function getItem (key) {
-  return 'key' in ms ? ms[key] : null;
+  return key in ms ? ms[key] : null;
 }
 
 function setItem (key, value) {
