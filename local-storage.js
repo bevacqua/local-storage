@@ -2,19 +2,18 @@
 
 var stub = require('./stub');
 var tracking = require('./tracking');
-var inIframe = global && global.top !== global;
 
-var localStorageAvailable = (function () {
+var localStorageAvailable = function () {
   try {
-    global.localStorage.setItem('test', 'test');
-    global.localStorage.removeItem('test');
+    global.localStorage.setItem('_test-local-storage-availability_', '1');
+    global.localStorage.removeItem('_test-local-storage-availability_');
     return true;
   } catch (e) {
     return false;
   }
-});
+};
 
-var ls = !inIframe && localStorageAvailable() ? global.localStorage : stub;
+var ls = localStorageAvailable() ? global.localStorage : stub;
 
 function accessor (key, value) {
   if (arguments.length === 1) {
