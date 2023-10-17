@@ -4,7 +4,19 @@
 
 var stub = require('./stub');
 var tracking = require('./tracking');
-var ls = 'localStorage' in global && global.localStorage ? global.localStorage : stub;
+var inIframe = global && global.top !== global;
+
+var localStorageAvailable = (function () {
+  try {
+    global.localStorage.setItem('test', 'test');
+    global.localStorage.removeItem('test');
+    return true;
+  } catch (e) {
+    return false;
+  }
+});
+
+var ls = !inIframe && localStorageAvailable() ? global.localStorage : stub;
 
 function accessor (key, value) {
   if (arguments.length === 1) {
